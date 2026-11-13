@@ -1,0 +1,9 @@
+{
+  "buildCommand": "NODE_OPTIONS=--openssl-legacy-provider npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

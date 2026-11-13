@@ -1,0 +1,353 @@
+.Game {
+  background-color: #00afbd;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  /* overflow: hidden; */
+}
+
+#content canvas {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  background-color: #00afbd;
+  transition: background-color linear 1s;
+}
+
+.Game .zoom-in-out {
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+}
+
+.Game .global-stats {
+  position: absolute;
+  background-color: white;
+  margin: auto;
+  right: 2rem;
+  width: 16rem;
+}
+.Game .global-stats-wrapper {
+  position: absolute;
+  right: 2.25rem;
+  top: 8rem;
+}
+
+.Game .tile-stats-wrapper {
+  position: absolute;
+  left: 2rem;
+  top: 8rem;
+}
+
+/* ── TLM Splash Screen ────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.Game .upload-no-replay-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.Game .tlm-splash {
+  background-color: #F2E8CE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tlm-splash-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+}
+
+.tlm-splash-logo {
+  height: 120px;
+  width: auto;
+  margin-bottom: 0.25rem;
+}
+
+.tlm-splash-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.tlm-splash-the {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #7A4F08;
+  letter-spacing: 0.5em;
+}
+
+.tlm-splash-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: #1C0F02;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.tlm-splash-subtitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  color: #7A4F08;
+  letter-spacing: 0.2em;
+  margin: 0.3rem 0 0;
+}
+
+.Game .tlm-upload-btn {
+  background-color: #7A4F08 !important;
+  color: #F2E8CE !important;
+  font-family: 'Orbitron', sans-serif !important;
+  font-size: 1rem !important;
+  padding: 0.65rem 1.75rem !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.Game .tlm-upload-btn:hover {
+  background-color: #5C3A05 !important;
+}
+
+.Game .upload-icon-no-replay {
+  width: 1.4rem;
+  filter: brightness(10);
+}
+
+.tlm-splash-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: #5C3A05;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.tlm-splash-hint code {
+  background: rgba(122, 79, 8, 0.1);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+.tlm-org-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(122, 79, 8, 0.2);
+  width: 100%;
+}
+
+.tlm-org-logo {
+  height: 52px;
+  width: auto;
+  opacity: 0.85;
+  object-fit: contain;
+}
+
+.tlm-org-sep {
+  width: 1px;
+  height: 24px;
+  background: rgba(122, 79, 8, 0.25);
+}
+
+.Game .phaser-wrapper {
+  display: none;
+}
+.Game .gameContainer .phaser-wrapper.Loading #content {
+  display: none;
+}
+
+.Game .play-buttons {
+  margin-top: 1rem;
+}
+.Game .play-buttons .play {
+  margin-right: 1rem;
+  vertical-align: top;
+}
+
+.Game .debug-mode-button-wrapper {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  color: #323d34;
+  background-color: #f9efe2;
+  padding: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.Game .debug-mode-button-wrapper .MuiTypography-body1 {
+  font-weight: 600;
+}
+
+.Game .map-meta-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #F2E8CE;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+
+.Game .debug-sidetext {
+  position: absolute;
+  right: 30rem;
+  top: 4.5rem;
+  background-color: rgba(50, 61, 52, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  max-width: 10rem;
+}
+.Game .debug-sidetext h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.Game .debug-sidetext .sidetext-0 {
+  color: #f3a400;
+}
+.Game .debug-sidetext .sidetext-1 {
+  color: #3686ff;
+}
+.Game .warnings-button {
+  position: absolute;
+  top: 1rem;
+  right: 12rem;
+  background-color: rgba(122, 79, 8, 0.35);
+  border-radius: 1rem;
+  color: #F2E8CE;
+  font-weight: 500;
+  width: 14rem;
+}
+
+/* ── TLM Branding Pull Tab ────────────────────────────────────────── */
+.tlm-brand-tab {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 1.6rem;
+  height: 4rem;
+  background: rgba(28, 15, 2, 0.75);
+  border: none;
+  border-radius: 0 6px 6px 0;
+  color: #C8922A;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.35s ease, background 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.tlm-brand-tab.open {
+  left: 240px;
+}
+
+.tlm-brand-tab:hover {
+  background: rgba(122, 79, 8, 0.85);
+}
+
+/* ── TLM Branding Panel ───────────────────────────────────────────── */
+.tlm-brand-panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 240px;
+  z-index: 25;
+  background: #ffffff;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1.5rem 1.5rem;
+  gap: 1rem;
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.tlm-brand-panel.open {
+  transform: translateX(0);
+}
+
+.tlm-brand-panel-logo {
+  width: 130px;
+  height: auto;
+}
+
+.tlm-brand-panel-title-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tlm-brand-panel-the {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  color: #7A4F08;
+  letter-spacing: 0.2em;
+}
+
+.tlm-brand-panel-comp {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1C0F02;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tlm-brand-panel-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #7A4F08;
+  margin: 0;
+}
+
+.tlm-brand-panel-divider {
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #C8922A, transparent);
+}
+
+.tlm-brand-panel-orgs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  padding-top: 0.5rem;
+}
+
+.tlm-brand-panel-org {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
